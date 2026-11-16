@@ -28,4 +28,6 @@ public class Students {
     @Column (name="email", nullable = false, unique = true)
     private String email;
 
+    //Add
+
 }
