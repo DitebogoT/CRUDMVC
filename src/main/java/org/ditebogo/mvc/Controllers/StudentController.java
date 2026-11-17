@@ -28,7 +28,7 @@ public class StudentController {
     {
         StudentResponse response = studentService.createStudent(request);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentService);
     }
 
     // READ ALL

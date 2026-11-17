@@ -12,6 +12,7 @@ import org.hibernate.DuplicateMappingException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class StudentService {
 
     private final StudentRepository studentRepository;
@@ -44,6 +45,13 @@ public class StudentService {
     public List<StudentResponse> getAllStudents(){
 
         return studentRepository.findAll().stream().map(this::mapToResponse).toList();
+    }
+    @Transactional(readOnly = true)
+    public StudentResponse getStudentById(Long id) {
+
+        Students student = findStudentOrThrow(id);
+
+        return mapToResponse(student);
     }
 
     //Updates a record inside a DB
